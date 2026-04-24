@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">part2</string>
+    <string name="current_safety_checks">Current safety checks:</string>
 </resources>

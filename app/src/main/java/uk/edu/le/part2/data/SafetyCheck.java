@@ -7,12 +7,62 @@ import java.util.Date;
 
 @Entity
 public class SafetyCheck {
-    /* The parent entity
+    /* The parent entity which will sit in recycler cards
      */
     @PrimaryKey
-    public int checkId;
-    public Date date;
-    public String vehicleRegistration;
-    public String driverName;
-    public String overallStatus;
+    private int checkId;
+    private Date date;
+    private String vehicleRegistration;
+    private String driverName;
+    private String overallStatus;
+
+    public SafetyCheck(int checkId, Date date, String vehicleRegistration, String driverName, String overallStatus){
+        this.checkId = checkId;
+        this.date = date;
+        this.vehicleRegistration = vehicleRegistration;
+        this.driverName = driverName;
+        this.overallStatus = overallStatus;
+    }
+
+    public String getOverallStatus() {
+        return overallStatus;
+    }
+
+    public void setOverallStatus(String overallStatus) {
+        this.overallStatus = overallStatus;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
+
+    public String getVehicleRegistration() {
+        return vehicleRegistration;
+    }
+
+    public void setVehicleRegistration(String vehicleRegistration) {
+        this.vehicleRegistration = vehicleRegistration;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getCheckId() {
+        return checkId;
+    }
+
+    public void setCheckId(int checkId) {
+        this.checkId = checkId;
+    }
 }
+
+
