@@ -11,14 +11,14 @@ public class SafetyCheck {
      */
     @PrimaryKey
     private int checkId;
-    private Date date;
+    private Date checkDate;
     private String vehicleRegistration;
     private String driverName;
     private String overallStatus;
 
-    public SafetyCheck(int checkId, Date date, String vehicleRegistration, String driverName, String overallStatus){
+    public SafetyCheck(int checkId, Date checkDate, String vehicleRegistration, String driverName, String overallStatus){
         this.checkId = checkId;
-        this.date = date;
+        this.checkDate = checkDate;
         this.vehicleRegistration = vehicleRegistration;
         this.driverName = driverName;
         this.overallStatus = overallStatus;
@@ -48,12 +48,12 @@ public class SafetyCheck {
         this.vehicleRegistration = vehicleRegistration;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCheckDate() {
+        return checkDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCheckDate(Date checkDate) {
+        this.checkDate = checkDate;
     }
 
     public int getCheckId() {

@@ -2,6 +2,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recyclerCard"
     android:layout_width="wrap_content"
     android:layout_height="105dp">
 
@@ -18,7 +19,7 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/checkDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/vehicleName"
@@ -26,7 +27,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:text="date"
+        android:text="checkDate"
         android:textSize="16sp" />
 
 
@@ -34,7 +35,7 @@
         android:id="@+id/defectCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/date"
+        android:layout_below="@+id/checkDate"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
@@ -50,5 +51,30 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:background="#808080" />
+
+    <TextView
+        android:id="@+id/vehicleRegistration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="23dp"
+        android:layout_toEndOf="@+id/checkDate"
+
+        android:text="vehicle reg" />
+
+    <TextView
+        android:id="@+id/overallStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vehicleRegistration"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="24dp"
+        android:layout_toEndOf="@+id/defectCounter"
+
+        android:text="overall status" />
 
 </RelativeLayout>

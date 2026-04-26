@@ -10,9 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-import uk.edu.le.part2.data.SafetyCheck;
-
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
+
     private List<SafetyCheck> checkList;
 
     public Adapter(List<SafetyCheck> checkList) {
@@ -34,18 +33,24 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.MyViewHolder holder, int position) {
-        SafteyCheck safteyCheck = checkList.get(position);
+        SafetyCheck safetyCheck = checkList.get(position);
 
-        holder.checkId.setText(SafetyCheck.getCheckId());
-        //add all columns later
+        holder.checkId.setText(safetyCheck.getCheckId());
+        holder.checkDate.setText((CharSequence) safetyCheck.getCheckDate());
+        holder.vehicleRegistration.setText(safetyCheck.getVehicleRegistration());
+        holder.driverName.setText(safetyCheck.getDriverName());
+        holder.overallStatus.setText(safetyCheck.getOverallStatus());
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView id, date, vehicleRegistration, driverName, overallStatus; //pull info from defect later
+        TextView checkId, checkDate, vehicleRegistration, driverName, overallStatus; //pull info from defect later
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
                 checkId = itemView.findViewById(R.id.checkId);
-                //add all columns later
+                checkDate = itemView.findViewById(R.id.checkDate);
+                vehicleRegistration = itemView.findViewById(R.id.vehicleRegistration);
+                driverName = itemView.findViewById(R.id.driverName);
+                overallStatus = itemView.findViewById(R.id.overallStatus);
 
         }
     }

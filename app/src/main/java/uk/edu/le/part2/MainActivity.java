@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
         List <SafteyCheck> checkList = new ArrayList<>();
         //TODO loop through db and add all Saftey checks to this list
 
+
+
+        MyAdapter adapter = new MyAdapter(examList);
+        recyclerView.setAdapter(adapter);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
