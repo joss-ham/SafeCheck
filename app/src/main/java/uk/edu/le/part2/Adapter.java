@@ -40,6 +40,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
         holder.vehicleRegistration.setText(safetyCheck.getVehicleRegistration());
         holder.driverName.setText(safetyCheck.getDriverName());
         holder.overallStatus.setText(safetyCheck.getOverallStatus());
+
+        holder.itemView.setOnClickListener(v -> listener.onCheckClick(safetyCheck));
+    }
+    public void updateList(List<SafetyCheck> newList) {
+        this.checkList = newList;
+        notifyDataSetChanged();
+    }
+
+    public interface OnCheckClickListener {
+        void onCheckClick(SafetyCheck safetyCheck);
+    }
+
+    private OnCheckClickListener listener;
+
+    public Adapter(List<SafetyCheck> checkList, OnCheckClickListener listener) {
+        this.checkList = checkList;
+        this.listener = listener;
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder{

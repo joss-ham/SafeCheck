@@ -21,8 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        MyAdapter adapter = new MyAdapter(examList);
-        recyclerView.setAdapter(adapter);
+        adapter = new Adapter(new ArrayList<>(), safetyCheck -> {
+            Intent intent = new Intent(this, DetailActivity.class);
+            intent.putExtra("checkId", safetyCheck.getCheckId());
+            startActivity(intent);
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
