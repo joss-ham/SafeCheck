@@ -12,7 +12,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="20p"
+        android:layout_marginEnd="20dp"
         android:maxLines="1"
         android:text="vehicle name"
         android:textColor="@color/black"
@@ -56,12 +56,13 @@
         android:id="@+id/vehicleRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/vehicleName"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="47dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="23dp"
-        android:layout_toEndOf="@+id/checkDate"
 
+        android:layout_toEndOf="@+id/checkDate"
         android:text="vehicle reg" />
 
     <TextView
