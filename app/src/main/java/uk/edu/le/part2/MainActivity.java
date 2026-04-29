@@ -10,18 +10,25 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     private SafetyViewModel viewModel;
     private RecyclerView recyclerView;
     private SafetyCheckAdapter adapter;
+    private TextView emptyStateText;
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        emptyStateText = findViewById(R.id.emptyStateText);
 
         // Set up RecyclerView
         recyclerView = findViewById(R.id.recyclerView);
@@ -37,8 +44,22 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up ViewModel to observe database changes
         viewModel = new ViewModelProvider(this).get(SafetyViewModel.class);
-        viewModel.getAllChecks().observe(this, checks -> {
-            adapter.updateChecks(checks);
+        viewModel.getAllChecks().observe(this, safetyChecks -> {
+            adapter.updateChecks(safetyChecks);
+            //display text if db empty
+            if (safetyChecks == null || safetyChecks.isEmpty()) {
+                recyclerView.setVisibility(View.GONE);
+                emptyStateText.setVisibility(View.VISIBLE);
+            } else {
+                recyclerView.setVisibility(View.VISIBLE);
+                emptyStateText.setVisibility(View.GONE);
+            }
+        });
+        //set up add check button
+        Button fabAddCheck = findViewById(R.id.fabAddCheck);
+        fabAddCheck.setOnClickListener(v -> {
+            Intent intent = new Intent(this, AddCheckActivity.class);
+            startActivity(intent);
         });
 
         // Handle window insets

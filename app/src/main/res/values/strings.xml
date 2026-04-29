@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">part2</string>
     <string name="current_safety_checks">Current safety checks:</string>
+    <string-array name="severity_options">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
 </resources>

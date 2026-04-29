@@ -35,6 +35,10 @@ public class SafetyRepository {
 
     //writes
 
+    public void updateCheck(SafetyCheck safetyCheck) {
+        executorService.execute(() -> safetyCheckDao.updateCheck(safetyCheck));
+    }
+
     public void insertSafetyCheck(SafetyCheck safetyCheck) {
         executorService.execute(() -> safetyCheckDao.insertCheck(safetyCheck));
     }

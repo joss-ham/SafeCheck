@@ -9,15 +9,15 @@ import java.util.Date;
 public class SafetyCheck {
     /* The parent entity which will sit in recycler cards
      */
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int checkId;
     private Date checkDate;
     private String vehicleRegistration;
     private String driverName;
     private String overallStatus;
 
-    public SafetyCheck(int checkId, Date checkDate, String vehicleRegistration, String driverName, String overallStatus){
-        this.checkId = checkId;
+    public SafetyCheck(Date checkDate, String vehicleRegistration, String driverName, String overallStatus){
+
         this.checkDate = checkDate;
         this.vehicleRegistration = vehicleRegistration;
         this.driverName = driverName;

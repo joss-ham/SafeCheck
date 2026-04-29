@@ -46,6 +46,7 @@ public class SafetyCheckAdapter extends RecyclerView.Adapter<SafetyCheckAdapter.
         holder.dateText.setText(dateFormat.format(check.getCheckDate()));
         holder.vehicleText.setText(check.getVehicleRegistration());
         holder.driverText.setText(check.getDriverName());
+        holder.overallStatus.setText(check.getOverallStatus());
 
         holder.itemView.setOnClickListener(v -> listener.onItemClick(check));
     }
@@ -59,12 +60,15 @@ public class SafetyCheckAdapter extends RecyclerView.Adapter<SafetyCheckAdapter.
         TextView dateText;
         TextView vehicleText;
         TextView driverText;
+        TextView overallStatus;
 
         ViewHolder(View itemView) {
             super(itemView);
             dateText = itemView.findViewById(R.id.dateText);
             vehicleText = itemView.findViewById(R.id.vehicleText);
             driverText = itemView.findViewById(R.id.driverText);
+            overallStatus = itemView.findViewById(R.id.overallStatus);
+
         }
     }
 }
