@@ -59,8 +59,9 @@
         android:id="@+id/defectInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter defect description"
-        android:layout_marginBottom="8dp"/>
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp"
+        android:hint="Enter defect description" />
 
     <Button
         android:id="@+id/addDefectButton"
