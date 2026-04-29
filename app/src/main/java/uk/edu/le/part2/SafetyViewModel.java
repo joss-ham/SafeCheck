@@ -23,11 +23,11 @@ public class SafetyViewModel extends AndroidViewModel {
         return allChecks;
     }
 
-    public LiveData<SafetyCheck> getCheckById(int checkId) {
+    public LiveData<SafetyCheck> getCheckById(long checkId) {
         return repository.getCheckById(checkId);
     }
 
-    public LiveData<List<Defect>> getDefectsForCheck(int checkId) {
+    public LiveData<List<Defect>> getDefectsForCheck(long checkId) {
         return repository.getDefectsForCheck(checkId);
     }
 
@@ -39,6 +39,9 @@ public class SafetyViewModel extends AndroidViewModel {
         repository.insertDefect(defect);
     }
 
+    public void updateCheck(SafetyCheck safetyCheck) {
+        repository.updateCheck(safetyCheck);
+    }
     public void deleteSafetyCheck(SafetyCheck safetyCheck) {
         repository.deleteSafetyCheck(safetyCheck);
     }
