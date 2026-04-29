@@ -24,6 +24,8 @@
         <!-- DetailActivity - required for navigation -->
         <activity android:name=".DetailActivity" />
 
+        <activity android:name=".AddCheckActivity"/>
+
     </application>
 
 </manifest>
