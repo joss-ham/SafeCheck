@@ -1,81 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/recyclerCard"
-    android:layout_width="wrap_content"
-    android:layout_height="105dp">
-
-
-    <TextView
-        android:id="@+id/vehicleName"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:maxLines="1"
-        android:text="vehicle name"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_margin="8dp"
+    android:background="@android:drawable/editbox_background">
 
     <TextView
-        android:id="@+id/checkDate"
+        android:id="@+id/dateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/vehicleName"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:text="checkDate"
-        android:textSize="16sp" />
-
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/defectCounter"
+        android:id="@+id/vehicleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/checkDate"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:text="0 defects"
-        android:textSize="16sp" />
+        android:textSize="14sp"
+        android:layout_marginTop="4dp" />
 
     <TextView
-        android:id="@+id/border2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="#808080" />
-
-    <TextView
-        android:id="@+id/vehicleRegistration"
+        android:id="@+id/driverText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/vehicleName"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="23dp"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        android:textColor="#666666" />
 
-        android:layout_toEndOf="@+id/checkDate"
-        android:text="vehicle reg" />
-
-    <TextView
-        android:id="@+id/overallStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/vehicleRegistration"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="24dp"
-        android:layout_toEndOf="@+id/defectCounter"
-
-        android:text="overall status" />
-
-</RelativeLayout>
+</LinearLayout>
