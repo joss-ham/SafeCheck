@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import uk.edu.le.part2.data.Defect;
@@ -22,6 +24,8 @@ public class DetailActivity extends AppCompatActivity {
     private TextView checkIdText, dateText, vehicleText, driverText, statusText, defectsListText;
     private EditText defectInput;
     private Button addDefectButton, emailButton;
+    private Spinner severitySpinner;
+    private List<Defect> currentDefects = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class DetailActivity extends AppCompatActivity {
             defectInput = findViewById(R.id.defectInput);
             addDefectButton = findViewById(R.id.addDefectButton);
             emailButton = findViewById(R.id.emailButton);
+            severitySpinner = findViewById(R.id.severitySpinner);
 
             viewModel = new ViewModelProvider(this).get(SafetyViewModel.class);
             checkId = getIntent().getIntExtra("checkId", -1);
@@ -62,6 +67,7 @@ public class DetailActivity extends AppCompatActivity {
             // Load defects
             viewModel.getDefectsForCheck(checkId).observe(this, defects -> {
                 if (defects != null) {
+                    currentDefects = defects;
                     displayDefects(defects);
                 }
             });
@@ -74,8 +80,16 @@ public class DetailActivity extends AppCompatActivity {
                     Toast.makeText(DetailActivity.this, "Please enter a defect", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Defect newDefect = new Defect(0, description, "Low", checkId);
+                String severity = severitySpinner.getSelectedItem().toString();
+                Defect newDefect = new Defect(description, severity, checkId);
                 viewModel.insertDefect(newDefect);
+
+                //status fail if high severity is present
+                if (severity.equals("High") && currentSafetyCheck != null) {
+                    currentSafetyCheck.setOverallStatus("Fail");
+                    viewModel.updateCheck(currentSafetyCheck);
+                }
+
                 defectInput.setText("");
                 Toast.makeText(DetailActivity.this, "Defect added", Toast.LENGTH_SHORT).show();
             });
@@ -124,6 +138,9 @@ public class DetailActivity extends AppCompatActivity {
                     viewModel.getDefectsForCheck(checkId).removeObservers(DetailActivity.this);
                 });
             });
+            //exit button
+            Button backButton = findViewById(R.id.backButton);
+            backButton.setOnClickListener(v -> finish());
 
         } catch (Exception e) {
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
