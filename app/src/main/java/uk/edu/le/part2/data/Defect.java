@@ -21,8 +21,8 @@ public class Defect {
     private int checkId;
 
     // Constructor
-    public Defect(int defectId, String description, String severity, int checkId) {
-        this.defectId = defectId;
+    public Defect(String description, String severity, int checkId) {
+
         this.description = description;
         this.severity = severity;
         this.checkId = checkId;
