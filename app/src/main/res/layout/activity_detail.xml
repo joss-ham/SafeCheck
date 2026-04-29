@@ -63,6 +63,14 @@
         android:layout_marginBottom="8dp"
         android:hint="Enter defect description" />
 
+    <Spinner
+        android:id="@+id/severitySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp"
+        android:entries="@array/severity_options"/>
+
     <Button
         android:id="@+id/addDefectButton"
         android:layout_width="wrap_content"
@@ -75,5 +83,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email Report"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_marginTop="8dp"/>
 
 </LinearLayout>
